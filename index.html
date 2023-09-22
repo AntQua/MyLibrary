@@ -21,7 +21,7 @@
         <h1>My<br>Library</h1>
         <P>Here is a personal digital library for your daily reads. This platform allows you to keep track of what you've read or are currently reading.</P>
 
-        <form action="#" method="post" id="submit-book-form">
+        <form class="form" action="#" method="post" id="submit-book-form">
             <label for="title">*BOOK TITLE:</label>
             <input type="text" id="title" name="title" placeholder="Enter title of book" minlength="5" maxlength="20"
                 autofocus required />
@@ -57,6 +57,23 @@
     </section>
 
     <section class="counters-section">
+        <div class="counters">
+            <h3>Total books: <span id="total-books">0</span></h3>
+            <i class="fa-solid fa-book"></i>
+            <h3>Read books: <span id="total-read-books">0</span></h3>
+            <i class="fa-solid fa-book"></i>
+            <h3>Unread books: <span id="total-unread-books">0</span></h3>
+        </div>
+        <div class="show-books-btns">
+            <button class="show-btns show-all-btn">Show All Books</button>
+            <button class="show-btns show-read-btn">Show Read Books</button>
+            <button class="show-btns show-unread-btn">Show Unread Books</button>
+        </div>
+        <form class="form-search">
+            <label class="search-label" for="search">Search Book by title:</label>
+            <input class="search-input" type="text" id="search" name="search" placeholder="Enter book title">
+            <button type="submit" class="show-btns search-book-btn">SEARCH</button>
+        </form>
     </section>
 
     <section class="library-section">
