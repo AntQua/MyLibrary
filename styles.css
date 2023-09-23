@@ -19,7 +19,8 @@
     /* - Font sizes */
     --fs-h1: 2.5rem;
     --fs-h2: 2.25rem;
-    --fs-h3: 1.25rem;
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.25rem;
     --fs-body: 1rem;
 
     /* - Colors */
@@ -41,7 +42,8 @@
         /* - Font sizes */
         --fs-h1: 3.5rem;
         --fs-h2: 3.25rem;
-        --fs-h3: 1.5rem;
+        --fs-h3: 1.70rem;
+        --fs-h4: 1.2rem;
         --fs-body: 1.125rem;
     }
 }
@@ -86,7 +88,7 @@ strong {
     font-weight: var(--fw-bold);
 }
 
-a {
+/* a {
     color: inherit;
     text-decoration: none;
     font-weight: var(--fw-bold);
@@ -100,6 +102,7 @@ a:hover {
     outline: 3px solid var(--clr-accent);
     outline-offset: 3px;
 }
+*/
 
 i {
     color: var(--clr-blue);
@@ -154,11 +157,46 @@ i {
     width: 7em;
 }
 
+
+.book-read-btn {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    /* font-family: var(--font-light); */
+    cursor: pointer;
+    border: 2px solid var(--clr-dark);
+    border-radius: 20px;
+    padding: 10px 0;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    box-shadow: var(--bs);
+}
+
+.book-read-btn:hover {
+    background-color: var(--clr-blue-light);
+    color: var(--clr-dark);
+}
+
+.book-remove-btn {
+    background-color: var(--clr-blue-light);
+    color: var(--clr-dark);
+    cursor: pointer;
+    border: 2px solid var(--clr-dark);
+    border-radius: 20px;
+    padding: 10px 0;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    box-shadow: var(--bs);
+}
+
+.book-remove-btn:hover {
+    background-color: var(--clr-dark);
+    color: var(--clr-blue-light);
+}
+
 /* -------- Typography --------*/
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     line-height: 0.7;
     margin: 0;
 }
@@ -170,6 +208,10 @@ h2 {
 
 h3 {
     font-size: var(--fs-h3)
+}
+
+h4 {
+    font-size: var(--fs-h4)
 }
 
 .form-section h1 {
@@ -194,7 +236,27 @@ h3 {
     color: var(--clr-dark);
 }
 
+.library-section {
+    color: var(--clr-dark);
+}
 
+.book-card span {
+    font-family: var(--ff-secondary);
+}
+
+.book-card h3 {
+    font-size: clamp(1rem, 1.2vw, 1.6rem);
+}
+
+.book-card h4 {
+    font-size: clamp(0.8rem, 1.2vw, 1.3rem);
+    /* margin-bottom: 0.5em; */
+}
+
+.book-card p {
+    font-size: clamp(0.7rem, 1vw, 1rem);
+    /* margin: 0.5em; */
+}
 
 /*-------- FORM SECTION --------*/
 
@@ -302,3 +364,48 @@ input[type='checkbox'] {
     grid-area: library;
     background-color: var(--clr-blue-light);
 }
+
+.library-section h2 {
+    text-align: center;
+    margin: 0.5em;
+}
+
+/* .book-cards.visible */
+.book-cards {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, 200px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    overflow: auto;
+}
+
+/* .book-cards {
+    display: none;
+  } */
+
+/* book cards */
+
+.book-card {
+    background: linear-gradient(145deg,
+            var(--clr-gradient-left),
+            var(--clr-gradient-right));
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--clr-blue);
+    border-radius: 30px;
+    /* height: 20rem; */
+    padding: 1em;
+    text-align: center;
+    box-shadow: var(--bs);
+}
+
+.book-card>* {
+    margin: 0.5em;
+}
+
+.book-card p {
+    margin: 0;
+}
+
