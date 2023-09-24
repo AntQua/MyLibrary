@@ -25,7 +25,7 @@
 
     /* - Colors */
     --clr-dark: #070707;
-    --clr-dark-gray: #333333;
+    --clr-blue-dark:#0d3b41;
     --clr-light: #fff;
     --clr-blue: #186670;
     --clr-blue-light: #def1f1;
@@ -88,21 +88,6 @@ strong {
     font-weight: var(--fw-bold);
 }
 
-/* a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: var(--fw-bold);
-}
-
-a:hover {
-    color: var(--clr-accent);
-}
-
-:focus {
-    outline: 3px solid var(--clr-accent);
-    outline-offset: 3px;
-}
-*/
 
 i {
     color: var(--clr-blue);
@@ -111,85 +96,56 @@ i {
 
 /*-------- Buttons --------*/
 
-.add-book-btn {
-    background-color: var(--clr-dark);
+.btn-rounded{
+    background-color: var(--clr-blue-dark);
+    color: var(--clr-blue-light);
     border-radius: 20px;
-    border: 2px solid var(--clr-light);
-    color: var(--clr-lightt);
-    height: 3em;
-    padding: 0 15px;
-    font-size: 1rem;
     cursor: pointer;
     align-self: center;
     font-weight: var(--fw-bold);
-}
-
-.add-book-btn:hover {
-    background-color: var(--clr-blue);
-    color: var(--clr-light);
-    transform: scale(1.1);
-}
-
-.show-btns {
-    background-color: var(--clr-dark);
-    color: var(--color-white);
-    /* font-family: var(--font-light); */
-    cursor: pointer;
-    border: 2px solid var(--clr-dark);
-    border-radius: 10px;
-    padding: 10px;
-    font-size: clamp(0.7rem, 1vw, 1.5rem);
-    font-weight: var(--fw-bold);
+    box-shadow: var(--bs);
+    height: 3em;
+    padding: 0 15px;
     margin: 2em 2em;
-    width: 14em;
-    box-shadow: var(--bs);
+    border: 2px solid var(--clr-dark);
 }
 
-.show-btns:hover {
-    background-color: var(--clr-blue-light);
-    color: var(--clr-dark);
-    border: 2px solid var(--clr-dark);
+.btn-rounded:hover{
     transform: scale(1.1);
 }
 
-.search-book-btn {
-    margin: 0;
-    width: 7em;
+.btn-rounded_add{
+    border: 2px solid var(--clr-blue-light);
+    font-size: 1rem;
 }
 
-
-.book-read-btn {
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
-    /* font-family: var(--font-light); */
-    cursor: pointer;
-    border: 2px solid var(--clr-dark);
-    border-radius: 20px;
-    padding: 10px 0;
-    font-size: clamp(0.9rem, 1vw, 1rem);
-    box-shadow: var(--bs);
+.btn-rounded_add:hover{
+    background-color: var(--clr-blue);
+    color: var(--clr-blue-light);
+    transform: scale(1.1);
 }
 
-.book-read-btn:hover {
+.btn-rounded_dark{
+    font-size: clamp(0.7rem, 1vw, 1rem);
+}
+
+.btn-rounded_dark:hover{
     background-color: var(--clr-blue-light);
     color: var(--clr-dark);
 }
 
-.book-remove-btn {
+.btn-rounded_light{
     background-color: var(--clr-blue-light);
     color: var(--clr-dark);
-    cursor: pointer;
-    border: 2px solid var(--clr-dark);
-    border-radius: 20px;
-    padding: 10px 0;
-    font-size: clamp(0.9rem, 1vw, 1rem);
-    box-shadow: var(--bs);
+    font-size: clamp(0.7rem, 1vw, 1rem);
 }
 
-.book-remove-btn:hover {
-    background-color: var(--clr-dark);
+.btn-rounded_light:hover{
+    background-color: var(--clr-blue-dark);
     color: var(--clr-blue-light);
 }
+
+
 
 /* -------- Typography --------*/
 
@@ -245,11 +201,13 @@ h4 {
 }
 
 .book-card h3 {
-    font-size: clamp(1rem, 1.2vw, 1.6rem);
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    line-height: 1.1;
 }
 
 .book-card h4 {
-    font-size: clamp(0.8rem, 1.2vw, 1.3rem);
+    font-size: clamp(0.1rem, 1vw, 1.2rem);
+    line-height: 1.1;
     /* margin-bottom: 0.5em; */
 }
 
@@ -257,6 +215,15 @@ h4 {
     font-size: clamp(0.7rem, 1vw, 1rem);
     /* margin: 0.5em; */
 }
+
+.book-card .btn-rounded_dark{
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+}
+
+.book-card .btn-rounded_light{
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+}
+
 
 /*-------- FORM SECTION --------*/
 
