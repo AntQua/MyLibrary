@@ -10,6 +10,27 @@ function Book(title, author, pages, language, read) {
   this.read = read;
 }
 
+
+Book.prototype.toggleReadStatus = function () {
+  this.read = !this.read;
+};
+
+Book.prototype.AddReadStatusBtn = function (read) {
+  const readButton = document.createElement("button");
+  readButton.classList.add("btn-rounded");
+  readButton.classList.add("btn-rounded_dark");
+  readButton.textContent = this.read ? "Mark as unread" : "Mark as read";
+
+  readButton.addEventListener("click", () => {
+    this.toggleReadStatus();
+    readButton.textContent = this.read ? "Mark as unread" : "Mark as read";
+    read.textContent = this.read ? "Read" : "Unread";
+    
+  });
+
+  return readButton;
+};
+
 //Get the form input data to the library array
 function addBookToLibrary() {
   // Get user input from the form
@@ -69,19 +90,9 @@ function displayBooks() {
     bookCard.appendChild(read);
 
     //Readstatus button card
-    const readButton = document.createElement("button");
-    readButton.classList.add("btn-rounded");
-    readButton.classList.add("btn-rounded_dark");
-    readButton.textContent = read ? "Mark as unread" : "Mark as read";
-    readButton.addEventListener("click", () => {
-      readButton.textContent = read ? "Mark as unread" : "Mark as read";
-      read.textContent = read ? "Read" : "Unread";
-    });
+    const readButton = book.AddReadStatusBtn(read);
     bookCard.appendChild(readButton);
-
-    //set index to card
-    // bookCard.setAttribute("key", index);
-
+  
     //remove button card
     const removeButton = document.createElement("button");
     removeButton.classList.add("btn-rounded");
