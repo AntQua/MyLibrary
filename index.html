@@ -19,7 +19,8 @@
 
     <section class="form-section">
         <h1>My<br>Library</h1>
-        <P>Here is a personal digital library for your daily reads. This platform allows you to keep track of what you've read or are currently reading.</P>
+        <P>Here is a personal digital library for your daily reads. This platform allows you to keep track of what
+            you've read or are currently reading.</P>
 
         <form class="form" action="#" method="post" id="submit-book-form">
             <label for="title">*BOOK TITLE:</label>
@@ -28,8 +29,9 @@
 
             <label for="author">*AUTHOR:</label>
             <input type="text" id="author" name="author" placeholder="Enter author of book"
-                pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" minlength="5" maxlength="20"
-                title="No numbers allowed. Name Should start with a letter." required />
+                pattern="[A-Za-z][A-Za-z ',.-]*" minlength="5" maxlength="20"
+                title="No numbers allowed. Name should start with a letter." required />
+
 
             <label for="pages">*NUMBER OF PAGES:</label>
             <input type="number" id="pages" name="pages" placeholder="Enter total number of pages" min="1" max="1500"
@@ -78,8 +80,8 @@
 
     <section class="library-section">
         <h2>Library</h2>
-        <div class="book-cards">
-            <div class="book-card">
+        <div id="book-cards">
+            <!-- <div class="book-card">
                 <h3>Lord of the Rings</h3>
                 <h4>BY: <span>J.R.R. Tolkien</span></h4>
                 <P><strong>Nr Pages</strong> - <span>1178</span></P>
@@ -102,7 +104,7 @@
                 <P><strong>Language</strong> - <span>English</span></P>
                 <button type="submit" class="btn-rounded btn-rounded_dark">Read Book</button>
                 <button type="submit" class="btn-rounded btn-rounded_light">Delete Book</button>
-            </div>
+            </div> -->
         </div>
     </section>
 

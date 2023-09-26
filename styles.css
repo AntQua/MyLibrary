@@ -406,8 +406,8 @@ input[type='checkbox'] {
     margin: 0.5em;
 }
 
-/* .book-cards.visible */
-.book-cards {
+
+#book-cards {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, 200px);
@@ -421,7 +421,7 @@ input[type='checkbox'] {
     display: none;
   } */
 
-/* book cards */
+/* BOOK CARDS */
 
 .book-card {
     background: linear-gradient(145deg,
