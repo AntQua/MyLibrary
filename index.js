@@ -25,6 +25,9 @@ Book.prototype.AddReadStatusBtn = function (read) {
     this.toggleReadStatus();
     readButton.textContent = this.read ? "Mark as unread" : "Mark as read";
     read.textContent = this.read ? "Read" : "Unread";
+
+    // Update the counts in the counters section
+    updateCounters();
   });
 
   return readButton;
@@ -43,6 +46,8 @@ Book.prototype.toggleRemove = function (bookCard) {
     // Re-render the book cards in the library section
     displayBooks();
 
+    // Update the counts in the counters section
+    updateCounters();
   });
   return removeButton;
 };
@@ -118,23 +123,44 @@ function displayBooks() {
 
     //append everythig to libraryContainer
     libraryContainer.appendChild(bookCard);
-    console.log(libraryContainer);
+    // console.log(libraryContainer);
+
+    // Update the counts in the counters section
+    updateCounters();
   });
 }
 
 // Call the displayBooks function initially to display the book cards on the page
 displayBooks();
 
+//manage the counters for total books, read and unread books
+function updateCounters() {
+  const totalBooks = myLibrary.length;
+  const totalReadBooks = myLibrary.filter((book) => book.read).length;
+  const totalUnreadBooks = myLibrary.filter((book) => !book.read).length;
+
+  const totalBooksCounter = document.querySelector("#total-books");
+  totalBooksCounter.textContent = totalBooks;
+
+  const totalReadBooksCounter = document.querySelector("#total-read-books");
+  totalReadBooksCounter.textContent = totalReadBooks;
+
+  const totalUnreadBooksCounter = document.querySelector("#total-unread-books");
+  totalUnreadBooksCounter.textContent = totalUnreadBooks;
+}
+
+updateCounters();
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
   addBookToLibrary();
   displayBooks();
+  updateCounters();
 
   // Clear the form inputs
   event.target.reset();
 }
-
 
 // Add an event listener to the "ADD NEW BOOK" form to handle form submit
 const addNewBook = document.getElementById("submit-book-form");
