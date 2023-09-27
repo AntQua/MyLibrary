@@ -25,10 +25,26 @@ Book.prototype.AddReadStatusBtn = function (read) {
     this.toggleReadStatus();
     readButton.textContent = this.read ? "Mark as unread" : "Mark as read";
     read.textContent = this.read ? "Read" : "Unread";
-    
   });
 
   return readButton;
+};
+
+Book.prototype.toggleRemove = function (bookCard) {
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("btn-rounded");
+  removeButton.classList.add("btn-rounded_dark");
+  removeButton.textContent = "Remove";
+
+  removeButton.addEventListener("click", () => {
+    // Remove the book at the specified card index from the myLibrary array
+    myLibrary.splice(bookCard.getAttribute("key"), 1);
+
+    // Re-render the book cards in the library section
+    displayBooks();
+
+  });
+  return removeButton;
 };
 
 //Get the form input data to the library array
@@ -92,12 +108,12 @@ function displayBooks() {
     //Readstatus button card
     const readButton = book.AddReadStatusBtn(read);
     bookCard.appendChild(readButton);
-  
+
+    //set index to card
+    bookCard.setAttribute("key", index);
+
     //remove button card
-    const removeButton = document.createElement("button");
-    removeButton.classList.add("btn-rounded");
-    removeButton.classList.add("btn-rounded_light");
-    removeButton.textContent = "Delete book";
+    const removeButton = book.toggleRemove(bookCard);
     bookCard.appendChild(removeButton);
 
     //append everythig to libraryContainer
@@ -115,7 +131,7 @@ function handleFormSubmit(event) {
   addBookToLibrary();
   displayBooks();
 
-   // Clear the form inputs
+  // Clear the form inputs
   event.target.reset();
 }
 
