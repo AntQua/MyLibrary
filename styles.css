@@ -157,8 +157,13 @@ strong {
     color: var(--clr-blue-light);
 }
 
+.book-card .btn-rounded_dark{
+    width: 11em;
+}
 
-
+.book-card .btn-rounded_light{
+    width: 11em;
+}
 /* -------- Typography --------*/
 
 h1,
@@ -417,10 +422,6 @@ input[type='checkbox'] {
     overflow: auto;
 }
 
-/* .book-cards {
-    display: none;
-  } */
-
 /* BOOK CARDS */
 
 .book-card {
@@ -442,5 +443,6 @@ input[type='checkbox'] {
 }
 
 .book-card p {
+    font-size: clamp(0.8rem, 1vw, 1rem);
     margin: 0;
 }

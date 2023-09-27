@@ -36,8 +36,8 @@ Book.prototype.AddReadStatusBtn = function (read) {
 Book.prototype.toggleRemove = function (bookCard) {
   const removeButton = document.createElement("button");
   removeButton.classList.add("btn-rounded");
-  removeButton.classList.add("btn-rounded_dark");
-  removeButton.textContent = "Remove";
+  removeButton.classList.add("btn-rounded_light");
+  removeButton.textContent = "Delete";
 
   removeButton.addEventListener("click", () => {
     // Remove the book at the specified card index from the myLibrary array
@@ -103,7 +103,7 @@ function displayBooks() {
 //filter search func
 function filterSearch(event) {
   event.preventDefault();
-  
+
   const input = document.getElementById("search").value.trim();
 
   if (input === "") {
