@@ -80,12 +80,43 @@ function addBookToLibrary() {
 
 //Render the book cards on the Library
 function displayBooks() {
+  regenerateUpdateValue(myLibrary);
+  updateCounters();
+
+  //Show read books
+  const selectShowReadBooks = document.getElementById("show-read-btn");
+  selectShowReadBooks.addEventListener("click", showReadBtn);
+
+  //show unread books
+  const showUnreadBooks = document.getElementById("show-unread-btn");;
+  showUnreadBooks.addEventListener("click", showUnreadBtn);
+
+  //Show all books
+  const showAllBooks = document.getElementById("show-all-btn");
+  showAllBooks.addEventListener("click", showAllBtn);
+}
+
+//Show read books
+function showReadBtn() {
+  regenerateUpdateValue(myLibrary.filter((book) => book.read));
+}
+
+//Show unread books
+function showUnreadBtn() {
+  regenerateUpdateValue(myLibrary.filter((book) => !book.read));
+}
+
+//Show all books
+function showAllBtn() {
+  regenerateUpdateValue(myLibrary);
+}
+
+function regenerateUpdateValue(books) {
   const libraryContainer = document.getElementById("book-cards");
 
   libraryContainer.innerHTML = "";
 
-  myLibrary.forEach((book, index) => {
-
+  books.forEach((book, index) => {
     const bookCard = document.createElement("div");
 
     bookCard.classList.add("book-card");
@@ -110,7 +141,7 @@ function displayBooks() {
     read.textContent = book.read ? "Read" : "Unread";
     bookCard.appendChild(read);
 
-    //Readstatus button card
+    //Read status button card
     const readButton = book.AddReadStatusBtn(read);
     bookCard.appendChild(readButton);
 
@@ -124,9 +155,6 @@ function displayBooks() {
     //append everythig to libraryContainer
     libraryContainer.appendChild(bookCard);
     // console.log(libraryContainer);
-
-    // Update the counts in the counters section
-    updateCounters();
   });
 }
 
@@ -139,13 +167,13 @@ function updateCounters() {
   const totalReadBooks = myLibrary.filter((book) => book.read).length;
   const totalUnreadBooks = myLibrary.filter((book) => !book.read).length;
 
-  const totalBooksCounter = document.querySelector("#total-books");
+  const totalBooksCounter = document.getElementById("total-books");
   totalBooksCounter.textContent = totalBooks;
 
-  const totalReadBooksCounter = document.querySelector("#total-read-books");
+  const totalReadBooksCounter = document.getElementById("total-read-books");
   totalReadBooksCounter.textContent = totalReadBooks;
 
-  const totalUnreadBooksCounter = document.querySelector("#total-unread-books");
+  const totalUnreadBooksCounter = document.getElementById("total-unread-books");
   totalUnreadBooksCounter.textContent = totalUnreadBooks;
 }
 
