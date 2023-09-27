@@ -83,6 +83,10 @@ function displayBooks() {
   regenerateUpdateValue(myLibrary);
   updateCounters();
 
+  //filter search
+  const searchBtn = document.getElementById("search-book-btn");
+  searchBtn.addEventListener("click", filterSearch);
+
   //Show read books
   const selectShowReadBooks = document.getElementById("show-read-btn");
   selectShowReadBooks.addEventListener("click", showReadBtn);
@@ -94,6 +98,27 @@ function displayBooks() {
   //Show all books
   const showAllBooks = document.getElementById("show-all-btn");
   showAllBooks.addEventListener("click", showAllBtn);
+}
+
+//filter search func
+function filterSearch(event) {
+  event.preventDefault();
+  
+  const input = document.getElementById("search").value.trim();
+
+  if (input === "") {
+    return;
+  }
+
+  const searchKeywords = input.toLowerCase().split(' ');
+
+  const filteredByTitle = myLibrary.filter((book) => {
+    const bookTitle = book.title.toLowerCase();
+    return searchKeywords.some(keyword => bookTitle.includes(keyword));
+  });
+
+  regenerateUpdateValue(filteredByTitle);
+  document.getElementById("search").value = "";
 }
 
 //Show read books
